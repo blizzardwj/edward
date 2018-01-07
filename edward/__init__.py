@@ -16,7 +16,7 @@ from edward.inferences import Inference, MonteCarlo, VariationalInference, \
     ReparameterizationEntropyKLqp, ScoreKLqp, ScoreKLKLqp, ScoreEntropyKLqp, \
     ScoreRBKLqp, WakeSleep, GANInference, BiGANInference, WGANInference, \
     ImplicitKLqp, MAP, Laplace, complete_conditional, Gibbs
-from edward.models import RandomVariable
+from edward.models import RandomVariable, Trace
 from edward.util import check_data, check_latent_vars, copy, dot, \
     get_ancestors, get_blanket, get_children, get_control_variate_coef, \
     get_descendants, get_parents, get_session, get_siblings, get_variables, \
@@ -62,6 +62,7 @@ _allowed_symbols = [
     'complete_conditional',
     'Gibbs',
     'RandomVariable',
+    'Trace',
     'check_data',
     'check_latent_vars',
     'copy',
