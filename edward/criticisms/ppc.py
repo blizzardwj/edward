@@ -6,8 +6,9 @@ import numpy as np
 import six
 import tensorflow as tf
 
+from edward.inferences import check_data, check_latent_vars
 from edward.models import RandomVariable
-from edward.util import check_data, check_latent_vars, get_session
+from edward.util import get_session
 
 
 def ppc(T, data, latent_vars=None, n_samples=100):

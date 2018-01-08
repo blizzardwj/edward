@@ -10,14 +10,28 @@ from edward import util
 # Direct imports for convenience
 from edward.criticisms import evaluate, ppc, ppc_density_plot, \
     ppc_stat_hist_plot
-from edward.inferences import Inference, MonteCarlo, VariationalInference, \
-    HMC, MetropolisHastings, SGLD, SGHMC, \
-    KLpq, KLqp, ReparameterizationKLqp, ReparameterizationKLKLqp, \
-    ReparameterizationEntropyKLqp, ScoreKLqp, ScoreKLKLqp, ScoreEntropyKLqp, \
-    ScoreRBKLqp, WakeSleep, GANInference, BiGANInference, WGANInference, \
-    ImplicitKLqp, MAP, Laplace, complete_conditional, Gibbs
+from edward.inferences import (
+    bigan_inference,
+    complete_conditional,
+    gan_inference,
+    implicit_klqp,
+    klpq,
+    klqp,
+    reparameterization_klqp,
+    reparameterization_kl_klqp,
+    reparameterization_entropy_klqp,
+    score_klqp,
+    score_kl_klqp,
+    score_entropy_klqp,
+    score_rb_klqp,
+    laplace,
+    map,
+    wake_sleep,
+    wgan_inference,
+    )
+# from edward.inferences import MonteCarlo, HMC, MetropolisHastings, SGLD, SGHMC, Gibbs
 from edward.models import RandomVariable, Trace
-from edward.util import check_data, check_latent_vars, copy, dot, \
+from edward.util import copy, dot, \
     get_ancestors, get_blanket, get_children, get_control_variate_coef, \
     get_descendants, get_parents, get_session, get_siblings, get_variables, \
     is_independent, Progbar, random_variables, rbf, set_seed, \
@@ -36,30 +50,28 @@ _allowed_symbols = [
     'ppc',
     'ppc_density_plot',
     'ppc_stat_hist_plot',
-    'Inference',
+    'bigan_inference',
+    'complete_conditional',
+    'gan_inference',
+    'implicit_klqp',
     'MonteCarlo',
-    'VariationalInference',
     'HMC',
     'MetropolisHastings',
     'SGLD',
     'SGHMC',
-    'KLpq',
-    'KLqp',
-    'ReparameterizationKLqp',
-    'ReparameterizationKLKLqp',
-    'ReparameterizationEntropyKLqp',
-    'ScoreKLqp',
-    'ScoreKLKLqp',
-    'ScoreEntropyKLqp',
-    'ScoreRBKLqp',
-    'WakeSleep',
-    'GANInference',
-    'BiGANInference',
-    'WGANInference',
-    'ImplicitKLqp',
-    'MAP',
-    'Laplace',
-    'complete_conditional',
+    'klpq',
+    'klqp',
+    'reparameterization_klqp',
+    'reparameterization_kl_klqp',
+    'reparameterization_entropy_klqp',
+    'score_klqp',
+    'score_kl_klqp',
+    'score_entropy_klqp',
+    'score_rb_klqp',
+    'laplace',
+    'map',
+    'wake_sleep',
+    'wgan_inference',
     'Gibbs',
     'RandomVariable',
     'Trace',
@@ -89,6 +101,6 @@ _allowed_symbols = [
 
 # Remove all extra symbols that don't have a docstring or are not explicitly
 # referenced in the whitelist.
-remove_undocumented(__name__, _allowed_symbols, [
-    criticisms, inferences, models, util
-])
+# remove_undocumented(__name__, _allowed_symbols, [
+#     criticisms, inferences, models, util
+# ])
